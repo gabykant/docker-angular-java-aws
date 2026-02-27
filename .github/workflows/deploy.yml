@@ -12,8 +12,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        # with:
-        #   submodules: "recursive"
+
+      - name: Debug
+        run: |
+          pwd
+          ls -l
+          ls -l frontend
+          ls -l backend
 
       - name: Create .env
         run: |
