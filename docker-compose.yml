@@ -30,8 +30,6 @@ services:
   db:
     image: mysql:8.0
     container_name: db
-    env_file:
-      - .env
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root_password}
       - MYSQL_DATABASE=${MYSQL_DATABASE:-my_database}

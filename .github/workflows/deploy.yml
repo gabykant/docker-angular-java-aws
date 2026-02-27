@@ -19,6 +19,11 @@ jobs:
           echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
           echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> .env
 
+      - name: Debug tree
+        run: |
+          pwd
+          ls -R
+
       - name: Build images
         run: docker compose -f docker-compose.yml build
 
