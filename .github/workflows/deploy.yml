@@ -17,8 +17,8 @@ jobs:
         run: |
           pwd
           ls -l
-          ls -l frontend
-          ls -l backend
+          ls -l frontend2
+          ls -l backend2
 
       - name: Create .env
         run: |
