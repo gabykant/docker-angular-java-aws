@@ -1,6 +1,8 @@
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: dockerfile
     container_name: backend
     environment:
       - SPRING_PROFILES_ACTIVE=docker
@@ -14,7 +16,9 @@ services:
       - network-product
 
   nginx:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
     container_name: nginx
     ports:
       - "80:80"
