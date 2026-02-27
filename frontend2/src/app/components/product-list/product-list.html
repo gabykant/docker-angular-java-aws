@@ -1,0 +1,39 @@
+<!-- src/app/components/product-list/product-list.component.html -->
+<section class="product-list-section">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span class="dot"></span>
+      Produits enregistrés
+    </h2>
+    @if (!loading() && !error()) {
+      <span class="badge">{{ products().length }} produit(s)</span>
+    }
+  </div>
+
+  @if (loading()) {
+    <div class="state-container">
+      <div class="spinner"></div>
+      <p>Chargement des produits…</p>
+    </div>
+  } @else if (error()) {
+    <div class="state-container error">
+      <span class="icon">⚠️</span>
+      <p>{{ error() }}</p>
+      <button class="retry-btn" (click)="loadProducts()">Réessayer</button>
+    </div>
+  } @else if (products().length === 0) {
+    <div class="state-container">
+      <span class="icon">📦</span>
+      <p>Aucun produit enregistré pour l'instant.</p>
+    </div>
+  } @else {
+    <div class="products-grid">
+      @for (product of products(); track product.id) {
+        <app-product-card
+          [product]="product"
+          (delete)="onDelete($event)"
+        />
+      }
+    </div>
+  }
+</section>

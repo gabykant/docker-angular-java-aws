@@ -1,0 +1,15 @@
+<div class="container">
+
+  <header>
+    <p class="eyebrow">Dashboard</p>
+    <h1>Gestion des <em>Produits</em></h1>
+  </header>
+
+  <!-- FORM SECTION -->
+  <app-product-form (productAdded)="productList.loadProducts()" />
+
+  <section>
+      <!-- <app-product-form (productAdded)="productList.loadProducts()" /> -->
+      <app-product-list #productList />
+    </section>
+</div>

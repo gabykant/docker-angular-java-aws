@@ -1,0 +1,77 @@
+<section class="form-section">
+  <h2 class="section-title">
+    <span class="dot"></span>
+    Ajouter un produit
+  </h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-grid">
+            
+            <div class="form-group full">
+                <label for="name">Nom du produit</label>
+                <input
+                    id="name"
+                    type="text"
+                    formControlName="name"
+                    placeholder="ex: MacBook Pro 16"
+                    [class.invalid]="name?.invalid && name?.touched"
+                />
+                @if (name && name.touched && name.hasError('required')) {
+                    <span class="error-msg">Le nom est obligatoire.</span>
+                } @else if (name && name.touched && name.hasError('minlength')) {
+                    <span class="error-msg">Minimum 2 caractères.</span>
+                }
+            </div>
+        
+            <div class="form-group full">
+                <label for="description">Description</label>
+                <textarea
+                    id="description"
+                    formControlName="description"
+                    placeholder="Décrivez le produit en quelques mots…"
+                    [class.invalid]="description?.invalid && description?.touched"
+                ></textarea>
+                @if (description && description.touched && description.hasError('required')) {
+                    <span class="error-msg">La description est obligatoire.</span>
+                } @else if (description && description.touched && description.hasError('minlength')) {
+                    <span class="error-msg">Minimum 5 caractères.</span>
+                }
+            </div>
+        
+            <div class="form-group">
+                <label for="price">Prix (FCFA)</label>
+                <input
+                    id="price"
+                    type="number"
+                    formControlName="price"
+                    placeholder="ex: 850000"
+                    [class.invalid]="price?.invalid && price?.touched"
+                />
+                @if (price && price.touched && price.hasError('required')) {
+                    <span class="error-msg">Le prix est obligatoire.</span>
+                } @else if (price && price.touched && price.hasError('min')) {
+                    <span class="error-msg">Le prix ne peut pas être négatif.</span>
+                }
+            </div>
+
+            <div class="form-group submit-group">
+                <button type="submit" class="btn" [disabled]="loading()">
+                @if (loading()) {
+                    <span class="btn-spinner"></span> Enregistrement…
+                } @else {
+                    <span>＋</span> Enregistrer le produit
+                }
+                </button>
+            </div>
+
+        </div>
+        
+        @if (successMessage()) {
+        <p class="feedback success">✓ {{ successMessage() }}</p>
+        }
+        @if (errorMessage()) {
+        <p class="feedback error">⚠ {{ errorMessage() }}</p>
+        }
+
+    </form>
+</section>

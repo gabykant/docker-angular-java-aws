@@ -1,0 +1,8 @@
+com\ksoft\component\Mapper.class
+com\ksoft\controllers\ProjectController.class
+com\ksoft\repository\ProductRepository.class
+com\ksoft\App.class
+com\ksoft\dto\ProductDTO.class
+com\ksoft\entity\Product.class
+com\ksoft\services\ProductService.class
+com\ksoft\entity\Product$ProductBuilder.class

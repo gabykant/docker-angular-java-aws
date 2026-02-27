@@ -1,0 +1,6 @@
+<div class="product-card">
+    <button class="delete-btn" (click)="delete.emit(product().id)" title="Supprimer">✕</button>
+    <h3 class="name">{{ product().name }}</h3>
+    <p class="desc">{{ product().description }}</p>
+    <span class="price">{{ product().price | currency:'XAF':'symbol':'1.0-0':'fr' }}</span>
+</div>
