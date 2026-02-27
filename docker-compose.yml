@@ -1,7 +1,7 @@
 services:
   backend:
     build:
-      context: ./backend2
+      context: ./backend
       dockerfile: Dockerfile
     container_name: backend
     environment:
@@ -17,7 +17,7 @@ services:
 
   nginx:
     build:
-      context: ./frontend2
+      context: ./frontend
       dockerfile: Dockerfile
     container_name: nginx
     ports:
