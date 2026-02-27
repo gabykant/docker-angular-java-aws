@@ -1,1 +1,3 @@
 # docker-angular-java-aws
+
+.
