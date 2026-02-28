@@ -13,23 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug
-        run: |
-          pwd
-          ls -l
-          ls -l frontend
-          ls -l backend
-
       - name: Create .env
         run: |
           echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> .env
           echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
           echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> .env
-
-      - name: Debug tree
-        run: |
-          pwd
-          ls -R
 
       - name: Build images
         run: docker compose -f docker-compose.yml build
